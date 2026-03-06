@@ -9,3 +9,4 @@ class AuthField extends StatelessWidget {
     return TextFormField(decoration: InputDecoration(hintText: hintText));
   }
 }
+

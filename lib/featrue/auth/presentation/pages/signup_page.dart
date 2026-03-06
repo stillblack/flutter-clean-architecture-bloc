@@ -1,4 +1,6 @@
+import 'package:blog_app/core/theme/app_pallete.dart';
 import 'package:blog_app/featrue/auth/presentation/widgets/auth_fiel.dart';
+import 'package:blog_app/featrue/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
@@ -12,17 +14,41 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Sign UP',
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-          AuthField(hintText: 'Email'),
-          
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Sign UP',
+              style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            const AuthField(hintText: 'Name'),
+            const SizedBox(height: 10),
+            const AuthField(hintText: 'Email'),
+            const SizedBox(height: 10),
+            const AuthField(hintText: 'Password'),
+            const SizedBox(height: 20),
+            const AuthGradientButton(),
+            const SizedBox(height: 10),
+             RichText(
+              text: TextSpan(
+                text: "Don't have an account? ",
+                style: Theme.of(context).textTheme.titleMedium,
+                children: [
+                  TextSpan(
+                    text: 'Sign In',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: AppPallete.gradient2,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
